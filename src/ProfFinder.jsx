@@ -1,13 +1,20 @@
-import React from 'react'
+import { useEffect } from 'react'
 import { useState } from 'react'
 
 const ProfFinder = () => {
     const [userName, setUsername] = useState("nianod")
 
-    
+    const fetchGithubUser = async () => {
+        const response = await fetch(`https://api.gtihub.com/users/${userName}`)
+        response = await response.json()
+        console.log(response)
+    }
+
 
     const handleSearch = () => {
-
+        useEffect(() => {
+            fetchGithubUser()
+        })
     }
 
 
