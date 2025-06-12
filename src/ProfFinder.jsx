@@ -7,29 +7,39 @@ const ProfFinder = () => {
     const [userdata, setuserdata] = useState(null)
 
     const fetchGithubUser = async () => {
+     try{   
         const response = await fetch(`https://api.github.com/users/${userName}`)
+        if(!response.ok) {
+            throw new Error("Username Not found")
+        }
         const data = await response.json()
         console.log(data)
         if(data) {
             setError(false)
-            setUsername('')
+            // setUsername('')
             setuserdata(data)
         }
+     } catch(err) {
+        setError(err.message)
+        setuserdata(null)
+     }
     }
 
     const handleSearch = () => {
-        fetchGithubUser()
-    }
+        if(userName.trim() !== "") {
+            fetchGithubUser()
+        } 
         
- 
+    }  
+      
 
   return (
     <div >
-      <div className='flex items-center justify-center mt-5'>
+      <div className='flex items-center justify-center mt-2'>
         <input
          className='focus:outline-none focus:ring-2 border rounded p-2 focus:ring-blue-500'
          type="text"
-         placeholder='Enter a username'
+         placeholder='Enter a github username'
          value={userName}
          onChange={(e) => setUsername(e.target.value)}
          />
@@ -38,14 +48,14 @@ const ProfFinder = () => {
          >
             Search
          </button>
-         {setError && (
-            <p className='text-red-500'>{error}</p>
-         )}
       </div>
       {
         
         userdata !== null ? < UserCard User= {userdata} /> :null
       }
+        {setError && (
+        <p className='text-red-600 flex items-center justify-center'>{error}</p>
+        )}      
     </div>
   )
 }

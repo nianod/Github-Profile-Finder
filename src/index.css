@@ -1,1 +1,9 @@
 @import 'tailwindcss';
+body {
+    background:linear-gradient(to right, rgba(4, 23, 57, 0.9666), rgba(31, 55, 100, 0.966)) ;
+}
+.card {
+    /* background: rgb(78, 81, 81); */
+    background:linear-gradient(to left, rgba(4, 23, 57, 0.9666), rgba(31, 55, 100, 0.966)) ;
+    box-shadow: 0px 0px 20px rgba(202, 199, 199, 0.3);
+}
