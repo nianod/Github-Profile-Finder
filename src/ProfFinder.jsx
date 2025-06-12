@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import UserCard from './UserCard'
 
 const ProfFinder = () => {
-    const [userName, setUsername] = useState("nianod")
+    const [userName, setUsername] = useState("")
     const [error, setError] = useState(false)
     const [userdata, setuserdata] = useState(null)
 
@@ -24,8 +24,8 @@ const ProfFinder = () => {
  
 
   return (
-    <div className='flex items-center justify-center mt-5'>
-      <div>
+    <div >
+      <div className='flex items-center justify-center mt-5'>
         <input
          className='focus:outline-none focus:ring-2 border rounded p-2 focus:ring-blue-500'
          type="text"
@@ -43,6 +43,7 @@ const ProfFinder = () => {
          )}
       </div>
       {
+        
         userdata !== null ? < UserCard User= {userdata} /> :null
       }
     </div>
