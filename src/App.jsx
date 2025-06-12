@@ -1,10 +1,8 @@
- function App() {
-  
+import ProfFinder from "./ProfFinder"
 
+const App = () => {
   return (
-    <>
-      <h1 className="mt-5 text-2xl text-blue-700 font-bold">Hello world</h1>
-    </>
+    <ProfFinder />
   )
 }
 
