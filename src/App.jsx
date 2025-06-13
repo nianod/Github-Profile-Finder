@@ -7,6 +7,7 @@ const App = () => {
     <h2 className="flex items-center justify-center mt-1 text-xl font-bold">Github Profile Finder</h2>
      < ProfFinder />
   </div>   
+  <p className="flex items-center justify-center gap-0.5">Regards: <i className="text-white"> @Arnold</i></p>
   </>
  )
 }
